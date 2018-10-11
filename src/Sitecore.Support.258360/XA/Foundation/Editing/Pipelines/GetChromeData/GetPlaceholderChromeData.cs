@@ -74,7 +74,9 @@
           }
           else
           {
-            Item sxaPlaceholderItem = LayoutsPageContext.GetSxaPlaceholderItem(placeholderKey, args.Item);
+            #region Modified code
+            Item sxaPlaceholderItem = LayoutsPageContext.GetSxaPlaceholderItem(getPlaceholderRenderingsArgs.PlaceholderKey, args.Item);
+            #endregion
             item = ((sxaPlaceholderItem == null) ? LayoutsPageContext.GetPlaceholderItem(getPlaceholderRenderingsArgs.PlaceholderKey, args.Item.Database, layout) : sxaPlaceholderItem);
           }
           if (!getPlaceholderRenderingsArgs.PlaceholderKey.EndsWith("*", StringComparison.Ordinal) || sxaPlaceholderItems.Any())
